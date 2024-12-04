@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Explorer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .explore-btn {
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .explore-btn:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #cta-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #2196F3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+        }
+
+        #cta-btn:hover {
+            background-color: #1976D2;
+        }
+
+        #modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            width: 90%;
+            max-width: 400px;
+            /* Reduced from 500px */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            height: 90vh;
+        }
+
+        #chatbox {
+            height: 75%;
+            overflow-y: auto;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 15px;
+            padding: 15px;
+            text-align: left;
+            border-radius: 5px;
+        }
+
+        #chatbox p {
+            margin: 5px 0;
+            padding: 8px 12px;
+            border-radius: 15px;
+            max-width: 80%;
+            word-wrap: break-word;
+            width: fit-content;
+        }
+
+        #chatbox p[sender="user"] {
+            background-color: #E3F2FD;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        #chatbox p[sender="bot"] {
+            background-color: #F5F5F5;
+            align-self: flex-start;
+        }
+
+        .menu-section {
+            margin-bottom: 15px;
+        }
+
+        .menu-section h3 {
+            margin-bottom: 5px;
+        }
+
+        .menu-item {
+            margin-left: 15px;
+            margin-bottom: 3px;
+        }
+
+        .input-area {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        #user-input {
+            flex-grow: 1;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            outline: none;
+        }
+
+        #send-btn {
+
+            height: 40px;
+            border-radius: 20px;
+            background-color: #2196F3;
+            color: white;
+            font-size: 14px;
+            margin-left: 10px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+
+        #send-btn:hover {
+            background-color: #1976D2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button id="explore-btn" class="explore-btn">Explore the menu</button>
+    </div>
+
+    <button id="cta-btn" class="explore-btn">💬</button>
+
+    <div id="modal">
+        <div class="modal-content">
+            <div style="display: flex; justify-content:end;">
+                <button style="border: 0; background-color: transparent; font-size: 24px; cursor: pointer; color: gray;"
+                    class="close-btn">&times;</button>
+            </div>
+            <div id="chatbox"></div>
+            <div class="input-area">
+                <input type="text" id="user-input" placeholder="Type your message...">
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script>
+        let conversationHistory = [];
+
+        // Initialize Firebase (replace with your own config)
+        const firebaseConfig = {
+            apiKey: "AIzaSyAIW2y0DZUzAN1VTooH1RTPJi1NQfFuwFY",
+            authDomain: "nantucket-ai.firebaseapp.com",
+            databaseURL: "https://nantucket-ai-default-rtdb.firebaseio.com",
+            projectId: "nantucket-ai",
+            storageBucket: "nantucket-ai.appspot.com",
+            messagingSenderId: "848937543590",
+            appId: "1:848937543590:web:3e2dee5ab4afef33ab1167",
+            measurementId: "G-BZZEFSV6ML",
+        };
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        const modal = document.getElementById('modal');
+        const exploreBtn = document.getElementById('explore-btn');
+        const ctaBtn = document.getElementById('cta-btn');
+        const chatbox = document.getElementById('chatbox');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        function openModal(message = '') {
+            modal.style.display = 'block';
+            if (message) {
+                sendMessage(message);
+            }
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        const closeBtn = document.querySelector('.close-btn');
+
+
+        async function sendMessage(message) {
+            const NantucketIslandKitchen = `Products
+1. Handle: 10-sailor-s-valentine-elizabeth-braun-1
+•	Title: 12” Sailor’s Valentine | Elizabeth Braun
+•	Price: $3,500.00
+•	Description: Handcrafted by Nantucket artist Elizabeth Braun, featuring an intricate shell arrangement in a cherrywood frame. Reflects the true Nantucket tradition of Sailor’s Valentines.
+•	Vendor: Nantucket Looms
+•	Type: Artwork
+•	Details: Dimensions: 12”
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ nantucketloomssailorsvalentines-2.webp?v=1724436439
+2. Handle: 14k-gold-aquamarine-peruvian-opal-and-moonstonebracelet
+•	Title: 14K Aquamarine, Opal and Moonstone Bracelet
+•	Price: $2,500.00
+•	Description: Featuring aquamarines, opals, and moonstones with a hand-carved toggle clasp. Each piece is unique and handmade.
+•	Vendor: Sharon Woods Hussey
+•	Type: Bracelets
+•	Details: Measurements: 7”
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/
+NantucketLooms14KAquamarine_OpalandMoonstoneBracelet.web p?v=1726169766
+3. Handle: 16oz-rosemary-cedar-thyme-liquid-lotion
+•	Title: 16oz Rosemary, Cedar & Thyme Liquid Lotion
+•	Price: $18.00
+•	Description: Gentle, plant-based lotion with refreshing rosemary, cedar, and thyme extracts.
+•	Vendor: Nantucket Looms
+•	Type: Soaps & Lotion
+•	Details: 16 fl. oz
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ NantucketLooms16ozRosemary_Cedar_ThymeLiquidLotion16ozRos emary_Cedar_ThymeLiquidLotion.webp?v=1727207480
+4. Handle: 16oz-wildflower-liquid-lotion
+•	Title: 16oz Wildflower Liquid Lotion
+•	Price: $18.00
+•	Description: Plant-based lotion with a lasting wildflower fragrance.
+•	Vendor: Nantucket Looms
+•	Type: Soaps & Lotion
+•	Details: 16 fl. oz
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/
+NantucketLooms16ozWildflowerLiquidLotion.webp?v=1727207835
+5. Handle: 18k-gold-and-ruby-bracelet
+•	Title: 18K Tourmaline and Ruby Bracelet
+•	Price: $1,800.00
+•	Description: Features ruby and tourmaline beads in an exquisite design. Handmade by Nantucket jewelry maker Sharon Woods Hussey.
+•	Vendor: Sharon Woods Hussey
+•	Type: Bracelets
+•	Details: Measurements: 7” x 0.81”
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ nantucketloomssharonwoodshusseyjewelry11_c1c4c956cdce-4510-bbaa-e38b615a2c7b.webp?v=1698857638
+6. Handle: 18k-gold-and-topaz-necklace
+•	Title: 18K Topaz Bead Necklace
+•	Price: $3,000.00
+•	Description: Handmade necklace with 18K gold and topaz beads, designed for layering or standalone elegance.
+•	Vendor: Sharon Woods Hussey
+•	Type: Necklaces
+•	Details: Measurements: 30”
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ nantucketloomssharonwoodshusseyjewelry3.webp?v=1698857613
+7. Handle: 18k-gold-and-tourmaline-earrings
+•	Title: 18K Tourmaline Earrings
+•	Price: $1,200.00
+•	Description: Hand-carved earrings with tourmaline stones, designed to capture oceanic hues.
+•	Vendor: Sharon Woods Hussey
+•	Type: Earrings
+•	Details: Measurements: 1.25”
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ sharonwoodshusseynantucketlooms4.webp?v=1696532994
+8. Handle: 18k-gold-and-turquoise-earrings
+•	Title: 18K Turquoise Earrings
+•	Price: $750.00
+•	Description: Modern earrings featuring turquoise drops and square earring posts.
+•	Vendor: Sharon Woods Hussey
+•	Type: Earrings
+•	Details: Measurements: 1.25”
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ nantucketloomssharonwoodshusseyjewelry21.webp? v=1696529166
+9. Handle: 18k-gold-blue-chalcedony-and-iolite-necklace
+•	Title: 18K Blue Chalcedony and Iolite Necklace
+•	Price: $2,800.00
+•	Description: Features chalcedony stones, iolite beads, and 18K gold accents. Handmade for elegance.
+•	Vendor: Sharon Woods Hussey
+•	Type: Necklaces
+•	Details: Measurements: 17”
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ sharonwoodshusseyjewelrynantucketlooms3_56d60683bcc6-4713-bf12-7c2780715f1f.webp?v=1724951607
+10.	Handle: 18k-gold-blue-chalcedony-and-moonstone-necklace
+•	Title: 18K Blue Chalcedony and Moonstone Necklace
+•	Price: $3,000.00
+•	Description: Features chalcedony stones, moonstones, and 18K gold beads. Perfect for a blend of luxury and natural beauty.
+•	Vendor: Sharon Woods Hussey
+•	Type: Necklaces
+•	Details: Measurements: 16”
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ Bluechalcedonynecklacewithiolitebeadsand18kgoldbeadsnantucke tlooms2.webp?v=1698854515
+11.	Handle: 18k-gold-diamond-and-moonstone-earrings
+•	Title: 18K Diamond and Moonstone Earrings
+•	Price: $1,900.00
+•	Description: Introducing our 18K Diamond Center Stone Earrings handmade by Nantucket Jeweler Sharon Woods Hussey. These exquisite earrings feature dazzling diamond center stones. Below, delicate moonstone drops, with their ethereal, milky glow, add a touch of celestial elegance.
+•	Vendor: Sharon Woods Hussey
+•	Type: Earrings
+•	Details: Measurements: 1”
+•	Earrings designed for pierced ears.
+•	All designs are original, hand-created; there’s no manufacturing, all done by hand, making them unique.
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ nantucketloomssharonwoodshusseyjewelry23.webp? v=1696529271
+12.	Handle: 18k-gold-rutilated-quartz-ring
+•	Title: 18K Quartz Ring
+•	Price: $1,050.00
+•	Description: Whether it’s for a special occasion or everyday wear, this 18K Gold Rutilated Quartz Ring will effortlessly elevate any outfit. This captivating gem features golden needle-like inclusions, adding enchanting depth and allure to your look. With an 18K gold twig enclosure, this one-of-a-kind piece cleanses the aura and pairs easily with your favorite jewelry pieces.
+•	Vendor: Sharon Woods Hussey
+•	Type: Rings
+•	Details: Measurements: Size 7
+•	All designs are original, hand-created; there’s no manufacturing, all done by hand, making them unique.
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ nantucketloomssharonwoodshusseyjewelry26.webp?
+v=1724942551
+13.	Handle: 18k-gold-textured-bangle
+•	Title: 18K Textured Bangle
+•	Price: $3,900.00
+•	Description: Introducing our exquisite 18K Gold Bangle, a work of art cast from an original wax-carved design by Nantucket jewelry maker Sharon Woods Hussey. Its texture, nature-inspired and reminiscent of delicate vines and twigs, adds a touch of organic elegance perfect alone or stacked with other bangles.
+•	Vendor: Sharon Woods Hussey
+•	Type: Bracelets
+•	Details: Measurements: Diameter 2.5”, Size 7.5”
+•	All designs are original, hand-created; there’s no manufacturing, all done by hand, making them unique.
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ nantucketloomssharonwoodshusseyjewelry1_9dd76c69d64f-4ad8-8007-7a52998f9e26.webp?v=1698857502
+14.	Handle: 18k-seashell-trio-pendant
+•	Title: 14K Seashell Trio Pendant
+•	Price: $1,100.00
+•	Description: The exquisite 14K Seashell Trio Pendant, a true ocean-inspired masterpiece handmade by Nantucket jewelry maker Sharon Woods Hussey. Cast from natural shells, including a Nantucket scallop, it embodies the essence of coastal elegance. Choose the pendant alone or pair it with a round gold cable chain to complete your beach-inspired look.
+•	Vendor: Sharon Woods Hussey
+•	Type: Jewelry
+•	Details: Measurements: 1” pendant, Adjustable 18” round cable chain
+•	All designs are original, hand-created; there’s no manufacturing, all done by hand, making them unique.
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ sharonwoodshusseynantucketloomsluxuryjewelry5.webp? v=1701792143
+15.	Handle: 18k-starfish-pendant
+•	Title: 18K Starfish Pendant
+•	Price: $895.00
+•	Description: Unveiling our enchanting 18K Starfish Pendant, a true ocean-inspired masterpiece. Crafted from a natural starfish, it radiates coastal elegance. Choose the pendant alone or pair it with a round gold cable chain to complete your beach-inspired look.
+•	Vendor: Sharon Woods Hussey
+•	Type: Jewelry
+•	Details: Measurements: 1” pendant, Adjustable 18” round cable chain
+•	All designs are original, hand-created; there’s no manufacturing, all done by hand, making them unique.
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ sharonwoodshusseynantucketloomsluxuryjewelry10.webp? v=1701792184
+16.	Handle: 18k-yellow-sapphire-sunflower-bracelet
+•	Title: 18K Yellow Sapphire Sunflower Bracelet
+•	Price: $9,800.00
+•	Description: Unveil the brilliance of our 18K Yellow Sapphire Bracelet. Its sunflower-inspired motif, adorned with radiant yellow sapphires, mirrors the vibrant hues of a sun-kissed bloom. 
+Handmade by Nantucket jewelry maker Sharon Woods-Hussey.
+•	Vendor: Sharon Woods Hussey
+•	Type: Bracelets
+•	Details: Measurements: 7” x 0.81”
+•	All designs are original, hand-created; there’s no manufacturing, all done by hand, making them unique.
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ nantucketlooms18KYellowSapphireSunflowerBracelet.webp?
+v=1726170430
+17.	Handle: 18th-century-handmade-burl-bowl
+•	Title: 19th Century Handcarved Black Ash Burl Bowl
+•	Price: $4,400.00
+•	Description: This 19th century serving bowl has been carved from the burl of a Black Ash Tree. The natural grain creates an unpredictable pattern making this bowl unique. The rich patina on the bowl is an indication of its many years of use.
+•	Vendor: Nantucket Looms
+•	Type: Vintage Decor
+•	Details: Measurements: Diameter 10”, Height 5”, Base Diameter 4”
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/
+NantucketLooms19thCenturyHandcarvedBlackAshBurlBowl.webp?
+v=1727208404
+18.	Handle: 19th-century-graphite-drawing-in-tramp-art-frame
+•	Title: 19th Century Graphite Drawing in Tramp Art Frame
+•	Price: $495.00
+•	Description: This 19th century graphite drawing is displayed in a tramp art frame from around the same time period. Each piece is a statement of its own, but together they make a special collector’s item. Each layer of intricately notched and layered wood tells a story of craftsmanship passed down through generations, creating a unique, textured depth. The drawing depicts a beautiful wooded landscape.
+•	Vendor: Nantucket Looms
+•	Type: Vintage Decor
+•	Details: Measurements: 5” x 7”
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ nantucketloomsvintagetrampartpieces2.webp?v=1706900825
+19.	Handle: 6-sailor-s-valentine-elizabeth-braun-4
+•	Title: 6” Sailor’s Valentine | Elizabeth Braun
+•	Price: $1,000.00
+•	Description: Handcrafted by noted Nantucket artist Elizabeth 
+Braun, this piece features an intricate arrangement of shells from Nantucket beaches and the Caribbean encased in a cherrywood frame. Sailor’s Valentines were purchased by sailors from Pacific Islanders in the 1800s during their long whaling expeditions. The shells and trinkets represented in these special boxes reflected the exotic areas the sailors visited. The sailors gave them to passing ships heading back to home ports as valentines to loved ones.
+•	Vendor: Nantucket Looms
+•	Type: Artwork
+•	Details: Dimensions: 6”
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ NantucketLooms6_Sailor_sValentine_ElizabethBraun.webp? v=1725979242
+20.	Handle: abaca-footed-pedestal-bowls
+•	Title: Abaca Footed Pedestal Bowls
+•	Price: $236.00
+•	Description: Created using a traditional coil technique, this abaca pedestal bowl features a neutral tone accented by a black rim. Their handwoven design adds texture, visual appeal, and enhances table or buffet settings.
+•	Vendor: Nantucket Looms
+•	Type: Decorative Bowls
+•	Details:
+•	Small: 5” x 12”
+•	Large: 7” x 14”
+•	Natural finish
+•	Handwoven rattan and abaca bowl
+•	Coil-style weaving method
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ Nines_29131_1024x1024_acd2c306-2226-46f0-a297e1f04d0a6067.webp?v=1721416460
+21. Handle: abaca-french-braided-napkin-ring
+•	Title: Abaca French Braided Napkin Ring
+•	Price: $10.00
+•	Description: Made from upcycled, sustainable abaca material, these durable napkin rings add an organic coastal touch to any table setting.
+•	Vendor: Nantucket Looms
+•	Type: Dinner Napkins
+•	Details: Dimensions: 2.5” x 2.5” x 1.75”
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ AbacaFrenchBraidedNapkinRing.webp?v=1726154215
+22. Handle: abstract-landscape-no-2-ken-layman
+•	Title: Abstract Landscape No.2 | Ken Layman
+•	Price: $3,000.00
+•	Description: Ken Layman’s abstract rendition of a Nantucket landscape, showcasing his exploration into the mysteries of painting. A unique and impressive view of Nantucket’s vistas through Layman’s eyes.
+•	Vendor: Ken Layman
+•	Type: Artwork
+•	Details: Dimensions: 13.5”W x 11”H x 0.25”D
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ NantucketLoomsAbstractLandscapeNo.2_KenLayman.webp?
+v=1727209700
+23. Handle: acacia-cocktail-tool-set
+•	Title: Acacia Cocktail Tool Set
+•	Price: $76.00
+•	Description: This four-piece barware set includes an ice scoop, bottle opener, stirring spoon, and knife. Crafted from stainless steel and polished wood, the set is food safe and designed for easy cleaning and storage.
+•	Vendor: Nantucket Looms
+•	Type: Spoons
+•	Details:
+•	Ice Scoop: 8” x 2” x 1.5”
+•	Bottle Opener: 6” x 1.5” x 0.25”
+•	Knife: 7.25” x 1” x 0.25”
+•	Stirring Spoon: 10” x 1” x 0.25”
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ nantucketloomsAcaciaCocktailToolSet.webp?v=1718812991
+24. Handle: ack-basket-weave-bangle
+•	Title: Ivory ACK Basket Weave Bangle
+•	Price: $295.00
+•	Description: Inspired by the Nantucket Lightship basket, this cane bracelet is handmade by Janet Carreau. It features a fossilized mammoth ivory charm engraved with a Nantucket map and “ACK” (Nantucket airport call letters). A timeless heirloom piece.
+•	Vendor: Janet Carreau
+•	Type: Bracelets
+•	Details: Made of 100% cane. Dimensions: 0.12” W x 2.5” D x 8” S
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ nantucketloomsHandwovenCaneBangles6.webp?v=1723223447
+25. Handle: ack-coasters
+•	Title: ACK Marble Coasters
+•	Price: $32.00
+•	Description: These marble coasters are a subtle reminder of Nantucket’s airport call letters, “ACK.” Perfect for relaxing with a favorite beverage while dreaming of the Faraway Island. Sold as a set.
+•	Vendor: Nantucket Looms
+•	Type: Coasters
+•	Details: Dimensions: N/A
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ NantucketLoomsACKMarbleCoasters_27795583-88d1-406cbe2b-24bf57528f64.webp?v=1727209913
+26. Handle: ack-decorative-balls-4
+•	Title: ACK Decorative Spheres
+•	Price: $600.00
+•	Description: Hand-painted by artist Melissa Macleod, these decorative spheres represent Nantucket’s airport call letters, “ACK.” Painted in a variety of milk paint colors, these spheres make a beautiful artistic addition to any home.
+•	Vendor: Melissa Macleod
+•	Type: Artwork
+•	Details:
+•	Dimensions: 4” Diameter
+•	Composition: Milk Paint & Wood
+•	Metal rings for display included
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/products/ ack-balls-blue-green.jpg?v=1661803591
+27. Handle: ack-decorative-balls-5
+•	Title: ACK Decorative Spheres
+•	Price: $600.00
+•	Description: A festive red version of the ACK Decorative Spheres, perfect for holiday décor. Hand-painted by island artist Melissa Macleod, these spheres add a touch of Nantucket charm to any space.
+•	Vendor: Melissa Macleod
+•	Type: Artwork
+•	Details:
+•	Dimensions: 4” Diameter
+•	Composition: Milk Paint & Wood
+•	Metal rings for display included
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ NantucketLoomsACKDecorativeSpheres.webp?v=1727209781
+28. Handle: ack-decorative-holiday-star-spheres
+•	Title: ACK Decorative Holiday Star Spheres
+•	Price: $600.00
+•	Description: These decorative spheres feature a festive holiday star motif, hand-painted by Melissa Macleod. They are a charming seasonal accent with a nod to Nantucket’s “ACK” airport call letters.
+•	Vendor: Melissa Macleod
+•	Type: Artwork
+•	Details:
+•	Dimensions: 4” Diameter
+•	Composition: Milk Paint & Wood
+•	Metal rings for display included
+•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ ACKDecorativeHolidayStarSpheresnantucketlooms.webp?
+v=1730225112
+`
+
+
+            // Add user message to conversation history
+            conversationHistory.push({ role: 'user', content: message });
+
+            console.log('Sending message:', message);
+            displayMessage({ text: message, sender: 'user' });
+
+            try {
+                console.log('Fetching response from server...');
+                const response = await fetch('https://nai-simple-bot-api-pk05.onrender.com/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    // If the question below is not about American Seasons, dont answer.
+                    body: JSON.stringify({
+                        message: `You are a helpful customer service chatbot for Nantucket Looms, a premium home decor retailer specializing in high-end, artisan-crafted items. Your mission is to answer their question and assist customers with their inquiries by:\n1. Being Friendly and Professional:\n • Maintain a warm, approachable tone that reflects our premium brand.\n2. Helping Customers Find the Right Decor Items:\n • Use product data to recommend items tailored to customer needs.\n • Suggest complementary products for a cohesive design.\n3. Explaining Product Features Clearly:\n • Highlight craftsmanship, unique details, and materials for each product.\n • Be specific about dimensions, care instructions, and design inspiration.\n4. Providing Shipping and Return Information:\n • Inform customers about shipping timelines, costs, and policies.\n • Clearly explain return and exchange options.\n5. Connecting to Human Support When Needed:\n • Recognize when a query requires human assistance and escalate smoothly.\n\nBrand Voice:\nAlways embody Nantucket Looms’ high-end, quality-focused ethos. Balance luxury and approachability in your responses to make customers feel valued and well-supported. Question::: ${message}` + " /n /n " +
+                            "Here is the conversation thread::: " +
+                            JSON.stringify(conversationHistory) +
+                            " /n /n " +
+                            "Refer to this info for context::: " +
+                            JSON.stringify(NantucketIslandKitchen) +
+                            " /n /n " +
+                            "Lastly, you can crawl other sites if very necessary."
+                    }),
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+                let botReply = '';
+                const botMessageElement = document.createElement('p');
+                botMessageElement.setAttribute('sender', 'bot');
+                chatbox.appendChild(botMessageElement);
+
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+
+                    const chunk = decoder.decode(value);
+                    const lines = chunk.split('\n');
+                    for (const line of lines) {
+                        if (line.startsWith('data: ')) {
+                            const data = line.slice(6);
+                            if (data === '[DONE]') break;
+
+                            try {
+                                const { reply } = JSON.parse(data);
+                                if (reply) {
+                                    botReply += reply;
+                                    botMessageElement.innerHTML = formatMenuResponse(botReply);
+                                    chatbox.scrollTop = chatbox.scrollHeight;
+                                }
+                            } catch (error) {
+                                console.error('Error parsing JSON:', error);
+                            }
+                        }
+                    }
+                }
+
+                console.log('Finished reading response');
+                // Ensure the final message is displayed
+                if (botReply) {
+                    // Add bot message to conversation history
+                    conversationHistory.push({ role: 'assistant', content: botReply });
+                    botMessageElement.innerHTML = formatMenuResponse(botReply);
+                    chatbox.scrollTop = chatbox.scrollHeight;
+                } else {
+                    botMessageElement.textContent = 'Sorry, I couldn\'t generate a response.';
+                }
+
+                // Save the conversation to Firebase
+                const messageRef = database.ref('messages').push();
+                messageRef.set({
+                    userMessage: message,
+                    botReply: botReply,
+                    timestamp: Date.now()
+                });
+            } catch (error) {
+                console.error('Error:', error);
+                displayMessage({ text: 'An error occurred. Please try again.', sender: 'bot' });
+            }
+
+            userInput.value = '';
+        }
+        function formatMenuResponse(response) {
+            const sections = response.split('\n\n');
+            let formattedHtml = '';
+
+            sections.forEach(section => {
+                const [title, ...items] = section.split('\n');
+                formattedHtml += `<div class="menu-section">
+                    <p>${title}</p>
+                    ${items.map(item => `<div class="menu-item">${item}</div>`).join('')}
+                </div>`;
+            });
+
+            return formattedHtml;
+        }
+
+        function displayMessage(message) {
+            const messageElement = document.createElement('p');
+            messageElement.textContent = message.text;
+            messageElement.setAttribute('sender', message.sender);
+            chatbox.appendChild(messageElement);
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+
+        exploreBtn.addEventListener('click', () => openModal());
+        ctaBtn.addEventListener('click', () => openModal());
+        sendBtn.addEventListener('click', () => sendMessage(userInput.value));
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage(userInput.value);
+            }
+        });
+
+        // Close the modal when clicking outside of it
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        closeBtn.addEventListener('click', closeModal);
+
+        // Listen for new messages (optional, if you want to display conversation history)
+        // database.ref('messages').on('child_added', (snapshot) => {
+        //     const message = snapshot.val();
+        //     displayMessage({ text: message.userMessage, sender: 'user' });
+        //     displayMessage({ text: message.botReply, sender: 'bot' });
+        // });
+    </script>
+</body>
+
+</html>
