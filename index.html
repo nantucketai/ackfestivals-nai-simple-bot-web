@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Explorer</title>
+    <title>ack festival bot</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -219,322 +219,178 @@
 
 
         async function sendMessage(message) {
-            const NantucketIslandKitchen = `Products
-1. Handle: 10-sailor-s-valentine-elizabeth-braun-1
-•	Title: 12” Sailor’s Valentine | Elizabeth Braun
-•	Price: $3,500.00
-•	Description: Handcrafted by Nantucket artist Elizabeth Braun, featuring an intricate shell arrangement in a cherrywood frame. Reflects the true Nantucket tradition of Sailor’s Valentines.
-•	Vendor: Nantucket Looms
-•	Type: Artwork
-•	Details: Dimensions: 12”
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ nantucketloomssailorsvalentines-2.webp?v=1724436439
-2. Handle: 14k-gold-aquamarine-peruvian-opal-and-moonstonebracelet
-•	Title: 14K Aquamarine, Opal and Moonstone Bracelet
-•	Price: $2,500.00
-•	Description: Featuring aquamarines, opals, and moonstones with a hand-carved toggle clasp. Each piece is unique and handmade.
-•	Vendor: Sharon Woods Hussey
-•	Type: Bracelets
-•	Details: Measurements: 7”
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/
-NantucketLooms14KAquamarine_OpalandMoonstoneBracelet.web p?v=1726169766
-3. Handle: 16oz-rosemary-cedar-thyme-liquid-lotion
-•	Title: 16oz Rosemary, Cedar & Thyme Liquid Lotion
-•	Price: $18.00
-•	Description: Gentle, plant-based lotion with refreshing rosemary, cedar, and thyme extracts.
-•	Vendor: Nantucket Looms
-•	Type: Soaps & Lotion
-•	Details: 16 fl. oz
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ NantucketLooms16ozRosemary_Cedar_ThymeLiquidLotion16ozRos emary_Cedar_ThymeLiquidLotion.webp?v=1727207480
-4. Handle: 16oz-wildflower-liquid-lotion
-•	Title: 16oz Wildflower Liquid Lotion
-•	Price: $18.00
-•	Description: Plant-based lotion with a lasting wildflower fragrance.
-•	Vendor: Nantucket Looms
-•	Type: Soaps & Lotion
-•	Details: 16 fl. oz
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/
-NantucketLooms16ozWildflowerLiquidLotion.webp?v=1727207835
-5. Handle: 18k-gold-and-ruby-bracelet
-•	Title: 18K Tourmaline and Ruby Bracelet
-•	Price: $1,800.00
-•	Description: Features ruby and tourmaline beads in an exquisite design. Handmade by Nantucket jewelry maker Sharon Woods Hussey.
-•	Vendor: Sharon Woods Hussey
-•	Type: Bracelets
-•	Details: Measurements: 7” x 0.81”
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ nantucketloomssharonwoodshusseyjewelry11_c1c4c956cdce-4510-bbaa-e38b615a2c7b.webp?v=1698857638
-6. Handle: 18k-gold-and-topaz-necklace
-•	Title: 18K Topaz Bead Necklace
-•	Price: $3,000.00
-•	Description: Handmade necklace with 18K gold and topaz beads, designed for layering or standalone elegance.
-•	Vendor: Sharon Woods Hussey
-•	Type: Necklaces
-•	Details: Measurements: 30”
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ nantucketloomssharonwoodshusseyjewelry3.webp?v=1698857613
-7. Handle: 18k-gold-and-tourmaline-earrings
-•	Title: 18K Tourmaline Earrings
-•	Price: $1,200.00
-•	Description: Hand-carved earrings with tourmaline stones, designed to capture oceanic hues.
-•	Vendor: Sharon Woods Hussey
-•	Type: Earrings
-•	Details: Measurements: 1.25”
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ sharonwoodshusseynantucketlooms4.webp?v=1696532994
-8. Handle: 18k-gold-and-turquoise-earrings
-•	Title: 18K Turquoise Earrings
-•	Price: $750.00
-•	Description: Modern earrings featuring turquoise drops and square earring posts.
-•	Vendor: Sharon Woods Hussey
-•	Type: Earrings
-•	Details: Measurements: 1.25”
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ nantucketloomssharonwoodshusseyjewelry21.webp? v=1696529166
-9. Handle: 18k-gold-blue-chalcedony-and-iolite-necklace
-•	Title: 18K Blue Chalcedony and Iolite Necklace
-•	Price: $2,800.00
-•	Description: Features chalcedony stones, iolite beads, and 18K gold accents. Handmade for elegance.
-•	Vendor: Sharon Woods Hussey
-•	Type: Necklaces
-•	Details: Measurements: 17”
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ sharonwoodshusseyjewelrynantucketlooms3_56d60683bcc6-4713-bf12-7c2780715f1f.webp?v=1724951607
-10.	Handle: 18k-gold-blue-chalcedony-and-moonstone-necklace
-•	Title: 18K Blue Chalcedony and Moonstone Necklace
-•	Price: $3,000.00
-•	Description: Features chalcedony stones, moonstones, and 18K gold beads. Perfect for a blend of luxury and natural beauty.
-•	Vendor: Sharon Woods Hussey
-•	Type: Necklaces
-•	Details: Measurements: 16”
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ Bluechalcedonynecklacewithiolitebeadsand18kgoldbeadsnantucke tlooms2.webp?v=1698854515
-11.	Handle: 18k-gold-diamond-and-moonstone-earrings
-•	Title: 18K Diamond and Moonstone Earrings
-•	Price: $1,900.00
-•	Description: Introducing our 18K Diamond Center Stone Earrings handmade by Nantucket Jeweler Sharon Woods Hussey. These exquisite earrings feature dazzling diamond center stones. Below, delicate moonstone drops, with their ethereal, milky glow, add a touch of celestial elegance.
-•	Vendor: Sharon Woods Hussey
-•	Type: Earrings
-•	Details: Measurements: 1”
-•	Earrings designed for pierced ears.
-•	All designs are original, hand-created; there’s no manufacturing, all done by hand, making them unique.
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ nantucketloomssharonwoodshusseyjewelry23.webp? v=1696529271
-12.	Handle: 18k-gold-rutilated-quartz-ring
-•	Title: 18K Quartz Ring
-•	Price: $1,050.00
-•	Description: Whether it’s for a special occasion or everyday wear, this 18K Gold Rutilated Quartz Ring will effortlessly elevate any outfit. This captivating gem features golden needle-like inclusions, adding enchanting depth and allure to your look. With an 18K gold twig enclosure, this one-of-a-kind piece cleanses the aura and pairs easily with your favorite jewelry pieces.
-•	Vendor: Sharon Woods Hussey
-•	Type: Rings
-•	Details: Measurements: Size 7
-•	All designs are original, hand-created; there’s no manufacturing, all done by hand, making them unique.
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ nantucketloomssharonwoodshusseyjewelry26.webp?
-v=1724942551
-13.	Handle: 18k-gold-textured-bangle
-•	Title: 18K Textured Bangle
-•	Price: $3,900.00
-•	Description: Introducing our exquisite 18K Gold Bangle, a work of art cast from an original wax-carved design by Nantucket jewelry maker Sharon Woods Hussey. Its texture, nature-inspired and reminiscent of delicate vines and twigs, adds a touch of organic elegance perfect alone or stacked with other bangles.
-•	Vendor: Sharon Woods Hussey
-•	Type: Bracelets
-•	Details: Measurements: Diameter 2.5”, Size 7.5”
-•	All designs are original, hand-created; there’s no manufacturing, all done by hand, making them unique.
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ nantucketloomssharonwoodshusseyjewelry1_9dd76c69d64f-4ad8-8007-7a52998f9e26.webp?v=1698857502
-14.	Handle: 18k-seashell-trio-pendant
-•	Title: 14K Seashell Trio Pendant
-•	Price: $1,100.00
-•	Description: The exquisite 14K Seashell Trio Pendant, a true ocean-inspired masterpiece handmade by Nantucket jewelry maker Sharon Woods Hussey. Cast from natural shells, including a Nantucket scallop, it embodies the essence of coastal elegance. Choose the pendant alone or pair it with a round gold cable chain to complete your beach-inspired look.
-•	Vendor: Sharon Woods Hussey
-•	Type: Jewelry
-•	Details: Measurements: 1” pendant, Adjustable 18” round cable chain
-•	All designs are original, hand-created; there’s no manufacturing, all done by hand, making them unique.
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ sharonwoodshusseynantucketloomsluxuryjewelry5.webp? v=1701792143
-15.	Handle: 18k-starfish-pendant
-•	Title: 18K Starfish Pendant
-•	Price: $895.00
-•	Description: Unveiling our enchanting 18K Starfish Pendant, a true ocean-inspired masterpiece. Crafted from a natural starfish, it radiates coastal elegance. Choose the pendant alone or pair it with a round gold cable chain to complete your beach-inspired look.
-•	Vendor: Sharon Woods Hussey
-•	Type: Jewelry
-•	Details: Measurements: 1” pendant, Adjustable 18” round cable chain
-•	All designs are original, hand-created; there’s no manufacturing, all done by hand, making them unique.
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ sharonwoodshusseynantucketloomsluxuryjewelry10.webp? v=1701792184
-16.	Handle: 18k-yellow-sapphire-sunflower-bracelet
-•	Title: 18K Yellow Sapphire Sunflower Bracelet
-•	Price: $9,800.00
-•	Description: Unveil the brilliance of our 18K Yellow Sapphire Bracelet. Its sunflower-inspired motif, adorned with radiant yellow sapphires, mirrors the vibrant hues of a sun-kissed bloom. 
-Handmade by Nantucket jewelry maker Sharon Woods-Hussey.
-•	Vendor: Sharon Woods Hussey
-•	Type: Bracelets
-•	Details: Measurements: 7” x 0.81”
-•	All designs are original, hand-created; there’s no manufacturing, all done by hand, making them unique.
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ nantucketlooms18KYellowSapphireSunflowerBracelet.webp?
-v=1726170430
-17.	Handle: 18th-century-handmade-burl-bowl
-•	Title: 19th Century Handcarved Black Ash Burl Bowl
-•	Price: $4,400.00
-•	Description: This 19th century serving bowl has been carved from the burl of a Black Ash Tree. The natural grain creates an unpredictable pattern making this bowl unique. The rich patina on the bowl is an indication of its many years of use.
-•	Vendor: Nantucket Looms
-•	Type: Vintage Decor
-•	Details: Measurements: Diameter 10”, Height 5”, Base Diameter 4”
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/
-NantucketLooms19thCenturyHandcarvedBlackAshBurlBowl.webp?
-v=1727208404
-18.	Handle: 19th-century-graphite-drawing-in-tramp-art-frame
-•	Title: 19th Century Graphite Drawing in Tramp Art Frame
-•	Price: $495.00
-•	Description: This 19th century graphite drawing is displayed in a tramp art frame from around the same time period. Each piece is a statement of its own, but together they make a special collector’s item. Each layer of intricately notched and layered wood tells a story of craftsmanship passed down through generations, creating a unique, textured depth. The drawing depicts a beautiful wooded landscape.
-•	Vendor: Nantucket Looms
-•	Type: Vintage Decor
-•	Details: Measurements: 5” x 7”
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ nantucketloomsvintagetrampartpieces2.webp?v=1706900825
-19.	Handle: 6-sailor-s-valentine-elizabeth-braun-4
-•	Title: 6” Sailor’s Valentine | Elizabeth Braun
-•	Price: $1,000.00
-•	Description: Handcrafted by noted Nantucket artist Elizabeth 
-Braun, this piece features an intricate arrangement of shells from Nantucket beaches and the Caribbean encased in a cherrywood frame. Sailor’s Valentines were purchased by sailors from Pacific Islanders in the 1800s during their long whaling expeditions. The shells and trinkets represented in these special boxes reflected the exotic areas the sailors visited. The sailors gave them to passing ships heading back to home ports as valentines to loved ones.
-•	Vendor: Nantucket Looms
-•	Type: Artwork
-•	Details: Dimensions: 6”
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ NantucketLooms6_Sailor_sValentine_ElizabethBraun.webp? v=1725979242
-20.	Handle: abaca-footed-pedestal-bowls
-•	Title: Abaca Footed Pedestal Bowls
-•	Price: $236.00
-•	Description: Created using a traditional coil technique, this abaca pedestal bowl features a neutral tone accented by a black rim. Their handwoven design adds texture, visual appeal, and enhances table or buffet settings.
-•	Vendor: Nantucket Looms
-•	Type: Decorative Bowls
-•	Details:
-•	Small: 5” x 12”
-•	Large: 7” x 14”
-•	Natural finish
-•	Handwoven rattan and abaca bowl
-•	Coil-style weaving method
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ Nines_29131_1024x1024_acd2c306-2226-46f0-a297e1f04d0a6067.webp?v=1721416460
-21. Handle: abaca-french-braided-napkin-ring
-•	Title: Abaca French Braided Napkin Ring
-•	Price: $10.00
-•	Description: Made from upcycled, sustainable abaca material, these durable napkin rings add an organic coastal touch to any table setting.
-•	Vendor: Nantucket Looms
-•	Type: Dinner Napkins
-•	Details: Dimensions: 2.5” x 2.5” x 1.75”
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ AbacaFrenchBraidedNapkinRing.webp?v=1726154215
-22. Handle: abstract-landscape-no-2-ken-layman
-•	Title: Abstract Landscape No.2 | Ken Layman
-•	Price: $3,000.00
-•	Description: Ken Layman’s abstract rendition of a Nantucket landscape, showcasing his exploration into the mysteries of painting. A unique and impressive view of Nantucket’s vistas through Layman’s eyes.
-•	Vendor: Ken Layman
-•	Type: Artwork
-•	Details: Dimensions: 13.5”W x 11”H x 0.25”D
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ NantucketLoomsAbstractLandscapeNo.2_KenLayman.webp?
-v=1727209700
-23. Handle: acacia-cocktail-tool-set
-•	Title: Acacia Cocktail Tool Set
-•	Price: $76.00
-•	Description: This four-piece barware set includes an ice scoop, bottle opener, stirring spoon, and knife. Crafted from stainless steel and polished wood, the set is food safe and designed for easy cleaning and storage.
-•	Vendor: Nantucket Looms
-•	Type: Spoons
-•	Details:
-•	Ice Scoop: 8” x 2” x 1.5”
-•	Bottle Opener: 6” x 1.5” x 0.25”
-•	Knife: 7.25” x 1” x 0.25”
-•	Stirring Spoon: 10” x 1” x 0.25”
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ nantucketloomsAcaciaCocktailToolSet.webp?v=1718812991
-24. Handle: ack-basket-weave-bangle
-•	Title: Ivory ACK Basket Weave Bangle
-•	Price: $295.00
-•	Description: Inspired by the Nantucket Lightship basket, this cane bracelet is handmade by Janet Carreau. It features a fossilized mammoth ivory charm engraved with a Nantucket map and “ACK” (Nantucket airport call letters). A timeless heirloom piece.
-•	Vendor: Janet Carreau
-•	Type: Bracelets
-•	Details: Made of 100% cane. Dimensions: 0.12” W x 2.5” D x 8” S
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ nantucketloomsHandwovenCaneBangles6.webp?v=1723223447
-25. Handle: ack-coasters
-•	Title: ACK Marble Coasters
-•	Price: $32.00
-•	Description: These marble coasters are a subtle reminder of Nantucket’s airport call letters, “ACK.” Perfect for relaxing with a favorite beverage while dreaming of the Faraway Island. Sold as a set.
-•	Vendor: Nantucket Looms
-•	Type: Coasters
-•	Details: Dimensions: N/A
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ NantucketLoomsACKMarbleCoasters_27795583-88d1-406cbe2b-24bf57528f64.webp?v=1727209913
-26. Handle: ack-decorative-balls-4
-•	Title: ACK Decorative Spheres
-•	Price: $600.00
-•	Description: Hand-painted by artist Melissa Macleod, these decorative spheres represent Nantucket’s airport call letters, “ACK.” Painted in a variety of milk paint colors, these spheres make a beautiful artistic addition to any home.
-•	Vendor: Melissa Macleod
-•	Type: Artwork
-•	Details:
-•	Dimensions: 4” Diameter
-•	Composition: Milk Paint & Wood
-•	Metal rings for display included
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/products/ ack-balls-blue-green.jpg?v=1661803591
-27. Handle: ack-decorative-balls-5
-•	Title: ACK Decorative Spheres
-•	Price: $600.00
-•	Description: A festive red version of the ACK Decorative Spheres, perfect for holiday décor. Hand-painted by island artist Melissa Macleod, these spheres add a touch of Nantucket charm to any space.
-•	Vendor: Melissa Macleod
-•	Type: Artwork
-•	Details:
-•	Dimensions: 4” Diameter
-•	Composition: Milk Paint & Wood
-•	Metal rings for display included
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ NantucketLoomsACKDecorativeSpheres.webp?v=1727209781
-28. Handle: ack-decorative-holiday-star-spheres
-•	Title: ACK Decorative Holiday Star Spheres
-•	Price: $600.00
-•	Description: These decorative spheres feature a festive holiday star motif, hand-painted by Melissa Macleod. They are a charming seasonal accent with a nod to Nantucket’s “ACK” airport call letters.
-•	Vendor: Melissa Macleod
-•	Type: Artwork
-•	Details:
-•	Dimensions: 4” Diameter
-•	Composition: Milk Paint & Wood
-•	Metal rings for display included
-•	Image Link: https://cdn.shopify.com/s/files/1/0886/1846/files/ ACKDecorativeHolidayStarSpheresnantucketlooms.webp?
-v=1730225112
-`
+          
+const eventsDatabase = `
+The 50th Annual Nantucket Christmas Stroll is scheduled for December 6–8, 2024. Here’s a concise guide to the key events:
 
-const storeInformation = `
-Nantucket Looms
-Location:
-51 Main Street
-Nantucket, MA 02554
-Contact Information:
-  • Phone: 508-228-1908
-  • Email: info@nantucketlooms.com
-  • Website: www.nantucketlooms.com
-Store Hours:
-  • Monday to Saturday: 10:00 AM – 5:00 PM
-  • Sunday: 10:00 AM – 4:00 PM
-Description:
-Established in 1968, Nantucket Looms is a renowned weaving studio and retail shop that embodies the artistry of Nantucket. They offer a curated selection of furnishings, apparel, and home accessories, complemented by handwoven textiles produced in their second-floor weaving studio. The store showcases works from over 80 artisans, including painters, potters, basket weavers, jewelry makers, and wood carvers, celebrating Nantucket’s rich history and island traditions.
-Nantucket Looms Interiors:
-For interior design services, Nantucket Looms Interiors provides comprehensive solutions tailored to various styles, from historic to contemporary coastal homes. Their full-service interior design team assists clients through every step of the design process, from initial scheming to installation. They work closely with architects and builders to ensure complete satisfaction with each project.
-Nantucket Looms Interiors Contact Information:
-  • Email: interiors@nantucketlooms.com
-  • Website: www.nantucketloomsinteriors.com
-For custom handwoven products, you can reach out to their weaving department at weaving@nantucketlooms.com.
-Please note that store hours may vary during holidays or special events. It’s advisable to contact the store directly or visit their website for the most up-to-date information.
+Friday, December 6:
+  • Tree Lighting Ceremony: At 4:00 PM, over 150 Christmas trees lining downtown streets will be illuminated, accompanied by community caroling led by The Accidentals and Naturals.
+  • St. Paul’s Church Christmas Concert: From 7:00 PM to 9:00 PM, enjoy holiday classics and favorite carols at St. Paul’s Church. Dessert and bubbly will be served in the Sanctuary. Tickets are $25, available at the door.
+  • Dreamland Stroll Party Featuring The Hess Twins: From 7:00 PM to 10:00 PM, join the fourth annual Dreamland Stroll Party with DJ duo The Hess Twins, dancing, a photo booth, cash bar, and light bites. Dress in your finest Stroll attire.
+
+Saturday, December 7:
+  • Christmas Stroll Marketplace: From 10:00 AM to 3:00 PM at the NIR/Stop & Shop Lot (9 Salem Street), explore a European-style market featuring crafts, food, and beverages from local artisans and businesses.
+  • Main Street Stage Entertainment: Between 10:00 AM and 5:00 PM, enjoy performances by Theatre Workshop of Nantucket, The Boys and Girls Club, The Accidentals & Naturals Nantucket High School Choir, and Victorian Carolers.
+  • Santa’s Arrival: At noon, Santa arrives via a Coast Guard vessel and parades up Main Street to the Pacific National Bank, escorted by the Town Crier.
+  • Talking Tree: From 1:30 PM to 2:30 PM, children can interact with the Magical Talking Tree.
+  • Ugly Sweater Contest: At 2:30 PM on Main Street, participate in the contest judged by Santa. Sign up between 10:30 AM and 2:30 PM at the Chamber’s merchandise table at the marketplace.
+  • Community Caroling: From 4:30 PM to 5:00 PM, join Victorian Carolers for a sing-along on the steps of Pacific National Bank on Main Street.
+  • Nantucket Historical Association’s Festival of Trees: Starting December 6 and continuing through the month, the Whaling Museum transforms into a winter wonderland with over 50 uniquely decorated trees designed by local businesses, artists, and organizations. Open from 10:00 AM to 4:00 PM.
+  • Nantucket Lighthouse School’s Yuletide Fair: From 10:00 AM to 2:00 PM at the White Elephant Ballroom (19 North Water Street), the fair features handcrafted holiday items, heirloom-quality gifts, a bake shop, and craft activities for children.
+  • St. Paul’s Church Christmas Market: From 9:30 AM to 3:00 PM, explore gifts, Christmas decorations, baked goods, fresh greens, and wreaths. A sit-down lunch is served from 11:30 AM to 2:00 PM.
+  • Deck the Wharf Bash at Straight Wharf Fish: From 7:00 PM to 10:00 PM, join the Maria Mitchell Association for an evening with champagne, caviar, burgers, stargazing, caroling, and special guests.
+  • Holiday Classics Featuring Amanda Mena: At 6:00 PM in The Dreamland’s Main Theater, enjoy a 90-minute concert of holiday standards performed by Amanda Mena and her Berklee band. Cash bar receptions before and after the performance.
+
+Sunday, December 8:
+  • Jolly Jam: Skate with Santa: From 3:00 PM to 6:00 PM at Nantucket Ice Community Rink, enjoy live music, kids’ activities, food trucks, cookies, and hot cocoa while skating with Santa.
+  • Sunday Brunch at The Nantucket Hotel: After the Stroll festivities, enjoy a delightful Sunday brunch at The Nantucket Hotel.
+
+Throughout the weekend:
+  Downtown Nantucket will feature Victorian carolers, craft shows, and beautifully decorated Christmas trees, creating a festive atmosphere for all. Many local businesses will offer special sales, holiday-themed events, and extended hours.
+
+For the most current information and additional events, please refer to the Nantucket Island Chamber of Commerce’s official website.
 `;
-const shippingAndReturnsDatabase = `
-Ground Shipping:
-Most purchases are shipped to arrive within 5 to 7 business days of receipt of the order. As closely as possible, the rates that we charge for shipping and handling fees at checkout are an accurate reflection of the rates that we incur from our shipping partners to safely package and deliver your order, and ensure that it meets the highest expectations.
-Sorry, but we do not ship to P.O. or APO Boxes at this time.
-All orders from our inventory are shipped via UPS Ground. Furniture, lamps & area rugs will be drop-shipped by our partners.
-Free shipping on orders over $250. Excludes furniture, rugs and oversized items such as baskets and large artwork. Continental USA only.
 
-Expedited Shipping:
-All orders placed before 12pm Monday-Friday will be shipped out same day. Orders placed after 12pm Monday-Friday will be shipped out the morning of the next business day. Orders placed on Saturday, Sunday or holidays will be shipped the next business day.
-Please note that Nantucket Looms is not responsible for delay in deliveries due to weather and will not refund the cost of expedited shipping in those cases.
+const boatScheduleDatabase = `
+Cape Air Announces Added Holiday Service Between New York and Nantucket, MA
 
-On-Island Delivery:
-Available for addresses on Nantucket only. Same-day delivery if order is placed before 12:00pm Monday-Friday. Orders placed after 12pm will be delivered the next business day. All orders delivered by 5:00pm.
-Orders placed Saturday, Sunday or holidays will be delivered the next business day. If you are not yet on island but will be soon, please email us at info@nantucketlooms.com after placing your order to schedule a delivery date & time.
-Complimentary for all on-hand items. Excludes furniture and area rugs.
+October 1, 2024 – In anticipation of the ever-popular Nantucket Stroll, Cape Air is pleased to announce increased flight capacity on its routes between New York and Nantucket, MA. Beginning December 5, 2024, the airline will add flight services between John F. Kennedy Airport (JFK) and Nantucket (ACK) as well as White Plains (HPN) and Nantucket, to accommodate the surge in travelers heading to the island for this favorite holiday event.
 
-In-Store Pickup:
-Please allow 24 hours for your order to be fulfilled. An email will be sent to notify you when your order is ready. If you are not yet on island but will be soon, please email us at info@nantucketlooms.com after placing your order to schedule a pick-up date & time.
-In-store pick up is complimentary for all on-hand items. Furniture, lamps & area rugs are not available for in-store pickup. If you would like it sent to our shop to pick up later, please enter our address at as the Shipping Address at checkout:
-Nantucket Looms
-51 Main Street
-Nantucket, MA 02554
+New Flight Schedule:
 
-Returns & Satisfaction Guarantee:
-At Nantucket Looms, we take pride in the quality of our merchandise. We’re confident that the quality of our merchandise will meet, if not exceed, your expectations.
-If you're not completely satisfied with your purchase, we’ll gladly offer you an exchange or refund of the merchandise price within 30 days of receipt of product. Please note that a return shipping charge of $12.95 will be deducted from your refund unless the item received is incorrect or damaged. In that case, contact returns@nantucketlooms.com prior to sending the item back to expedite your replacement order.
+JFK to Nantucket (ACK):
+  • Thursday, December 5, 2024: Nonstop flights available
+  • Friday, December 6, 2024: Nonstop flights available
+  • Return flights: Sunday, December 8, 2024, and Monday, December 9, 2024
 
-For "final sale" items, returns or exchanges are only accepted for manufacturing defects. Once your returned item is received and inspected, you will be notified of approval and the refund process will begin.
+White Plains (HPN) to Nantucket (ACK):
+  • Thursday, December 5, 2024: Two nonstop flights available
+  • Friday, December 6, 2024: Two nonstop flights available
+  • Return flights: Sunday, December 8, 2024, and Monday, December 9, 2024
 
-For questions or concerns, please contact us at info@nantucketlooms.com or 508-228-1908 (Monday – Friday, 10am – 5pm EST).
+These increased flights provide greater flexibility and convenience for travelers heading to Nantucket to enjoy the holiday festivities. 
+
+“Our commitment to the communities we serve is at the heart of everything we do,” said Linda Markham, CEO and President of Cape Air. “We understand how important it is for families and friends to come together during the holidays and celebrate the traditions that are meaningful to them. We are proud to play a role in making these moments possible. Nantucket’s holiday events are a true delight, and we’re excited to offer our passengers more options to experience the island’s festive charm.”
+
+Passengers can book their reservations now on capeair.com or by calling 1-800-CAPEAIR. We look forward to welcoming you aboard and helping you enjoy a memorable holiday season on Nantucket!
 `;
-            // Add user message to conversation history
+
+const expandedFlightScheduleDatabase = `
+CHRISTMAS STROLL Fast Ferry Schedules
+
+Nantucket to Hyannis:
+HIGH-SPEED FERRY – Friday, Dec. 6:
+  • 7:40 a.m. - 8:40 a.m. (Hy-Line)
+  • 9:00 a.m. - 10:00 a.m. (Hy-Line)
+  • 9:30 a.m. - 10:30 a.m. (Steamship)
+  • 10:30 a.m. - 11:30 a.m. (Hy-Line)
+  • 11:50 a.m. - 12:50 p.m. (Hy-Line)
+  • 12:30 p.m. - 1:30 p.m. (Steamship)
+  • 2:45 p.m. - 3:45 p.m. (Hy-Line)
+  • 3:30 p.m. - 4:30 p.m. (Steamship)
+  • 4:35 p.m. - 5:35 p.m. (Hy-Line)
+  • 5:35 p.m. - 6:35 p.m. (Hy-Line)
+  • 6:15 p.m. - 7:15 p.m. (Steamship)
+  • 7:25 p.m. - 8:25 p.m. (Hy-Line)
+  • 8:20 p.m. - 9:20 p.m. (Hy-Line)
+  • 10:10 p.m. - 11:10 p.m. (Hy-Line)
+
+Hyannis to Nantucket – Friday, Dec. 6:
+  • 6:10 a.m. - 7:10 a.m. (Hy-Line)
+  • 7:35 a.m. - 8:35 a.m. (Hy-Line)
+  • 8:15 a.m. - 9:15 a.m. (Steamship)
+  • 9:05 a.m. - 10:05 a.m. (Hy-Line)
+  • 10:25 a.m. - 11:25 a.m. (Hy-Line)
+  • 11:00 a.m. - 12:00 p.m. (Steamship)
+  • 11:55 a.m. - 12:55 p.m. (Hy-Line)
+  • 1:15 p.m. - 2:15 p.m. (Hy-Line)
+  • 2:00 p.m. - 3:00 p.m. (Steamship)
+  • 3:05 p.m. - 4:05 p.m. (Hy-Line)
+  • 4:10 p.m. - 5:10 p.m. (Hy-Line)
+  • 5:00 p.m. - 6:00 p.m. (Steamship)
+  • 6:00 p.m. - 7:00 p.m. (Hy-Line)
+  • 7:00 p.m. - 8:00 p.m. (Hy-Line)
+  • 8:50 p.m. - 9:50 p.m. (Hy-Line)
+
+Hy-Line Cruises – Saturday, Dec. 7:
+Hyannis to Nantucket:
+  • 6:10 a.m. - 7:10 a.m.
+  • 8:00 a.m. - 9:00 a.m.
+  • 9:05 a.m. - 10:05 a.m.
+  • 10:45 a.m. - 11:45 a.m.
+  • 11:55 a.m. - 12:55 p.m.
+  • 3:05 p.m. - 4:05 p.m.
+
+Nantucket to Hyannis:
+  • 7:40 a.m. - 8:40 a.m.
+  • 9:25 a.m. - 10:25 a.m.
+  • 10:30 a.m. - 11:30 a.m.
+  • 1:20 p.m. - 2:20 p.m.
+  • 4:35 p.m. - 5:35 p.m.
+  • 7:25 p.m. - 8:25 p.m.
+
+Hy-Line Cruises – Sunday, Dec. 8:
+Hyannis to Nantucket:
+  • 6:10 a.m. - 7:10 a.m.
+  • 7:35 a.m. - 8:35 a.m.
+  • 9:05 a.m. - 10:05 a.m.
+  • 11:55 a.m. - 12:55 p.m.
+  • 3:05 p.m. - 4:05 p.m.
+
+Nantucket to Hyannis:
+  • 7:40 a.m. - 8:40 a.m.
+  • 10:30 a.m. - 11:30 a.m.
+  • 2:45 p.m. - 3:45 p.m.
+  • 5:35 p.m. - 6:35 p.m.
+  • 8:20 p.m. - 9:20 p.m.
+
+Steamship Authority – Saturday & Sunday (Dec. 7–8):
+Nantucket to Hyannis:
+  • 9:30 a.m. - 10:30 a.m.
+  • 12:30 p.m. - 1:30 p.m.
+  • 3:30 p.m. - 4:30 p.m.
+  • 6:15 p.m. - 7:15 p.m.
+
+Hyannis to Nantucket:
+  • 8:15 a.m. - 9:15 a.m.
+  • 11:00 a.m. - 12:00 p.m.
+  • 2:00 p.m. - 3:00 p.m.
+  • 5:00 p.m. - 6:00 p.m.
+
+Traditional Ferry – Friday, Saturday, & Sunday:
+Nantucket to Hyannis:
+  • 6:30 a.m. - 8:45 a.m.
+  • 12:00 p.m. - 2:15 p.m.
+  • 5:30 p.m. - 7:45 p.m.
+
+Hyannis to Nantucket:
+  • 9:15 a.m. - 11:30 a.m.
+  • 2:45 p.m. - 5:00 p.m.
+  • 8:00 p.m. - 10:15 p.m.
+
+Ferry Rates:
+Hy-Line Cruises (High-Speed Ferry):
+  • Adult: $89 round-trip, $48 one-way
+  • Child (5–12): $54 round-trip, $31 one-way
+  • Child (under 5): Free
+  • Bicycle: $14 round-trip, $7 one-way
+
+Steamship Authority (High-Speed Ferry):
+  • Adult: $81 round-trip, $42.50 one-way
+  • Child (5–12): $41.75 round-trip, $21 one-way
+  • Child (under 5): Free
+  • Bicycle: $14 round-trip, $7 one-way
+
+Steamship Authority (Traditional Ferry):
+  • Adult: $41 round-trip, $20.50 one-way
+  • Child (5–12): $21 round-trip, $10.50 one-way
+  • Child (under 5): Free
+  • Autos: $360–$400 round-trip depending on size
+`;
+
+            
+            
+             // Add user message to conversation history
             conversationHistory.push({ role: 'user', content: message });
             const productDatabase = JSON.stringify(NantucketIslandKitchen);
 
@@ -551,65 +407,54 @@ For questions or concerns, please contact us at info@nantucketlooms.com or 508-2
                     // If the question below is not about American Seasons, dont answer.
                     body: JSON.stringify({
                         message:`
-        You are a customer service chatbot for Nantucket Looms, a home decor eCommerce site. 
-        Your primary function is to assist customers by providing information, answering questions, 
-        shipping and return policy information, and making recommendations. You have access to the following databases:
+        You are an AI tourism helper focused on the 50th Nantucket Christmas Stroll. Your primary function is to assist visitors by providing
+ information about the weekend's events and travel information from the boat schedule and the expanded flight schedule. You have access to three databases:
         
-        <product_database>
-        ${productDatabase}
-        </product_database>
+        <events_database>
+        ${eventsDatabase}
+        </events_database>
 
-        <store_information>
-        ${storeInformation}
-        </store_information>
 
-        <shipping_and_returns_database>
-        ${shippingAndReturnsDatabase}
-        </shipping_and_returns_database>
+        <boat_schedule_database>
+        ${boatScheduleDatabase}
+        </boat_schedule_database>
+
+
+        <expanded_flight_schedule_database>
+        ${expandedFlightScheduleDatabase}
+        </expanded_flight_schedule_database>
         
-        Use these databases to retrieve relevant information when responding to customer queries. 
+        Use these databases to retrieve relevant information when responding to visitor  queries. 
         Your responses should be concise, friendly, and focused on the most relevant data.
 
         Main functions:
-        1. Answer general questions about products (e.g., types of products available, materials used, etc.)
-        2. Provide specific product information (e.g., price, dimensions, colors, etc.)
-        3. Make product recommendations based on customer preferences
-        4. Suggest related products
-        5. Answer general questions about the store (e.g., store locations, hours of operation, history, etc.)
-        6. Provide specific information about store policies (e.g., return policy, shipping options, etc.)
-        7. Assist with inquiries about services offered by the store
-        8. Guide customers on how to navigate the website or place orders
-        9. Answer general questions about shipping options (e.g., shipping times, costs, international shipping, etc.)
-        10. Provide specific information about return policies (e.g., return periods, refund processes, etc.)
-        11. Clarify any customer concerns regarding shipping and return
-        12. Provide instructions on how to initiate returns or track shipments
+        1. Provide detailed information about the events during the 50th Nantucket Christmas Stroll (e.g., event times, locations, descriptions, etc.)
+        2. Offer travel information from the boat schedule (e.g., departure and arrival times, ticket prices, booking procedures, etc.)
+        3. Answer general questions about the Nantucket Christmas Stroll and the island
+        4. Clarify any visitor concerns regarding events or travel arrangements
         
-        Guidelines for answering queries:
+        When answering queries, follow these guidelines:
         - Always prioritize accuracy and relevance in your responses
         - Keep answers concise and to the point
         - If a query is ambiguous or lacks sufficient information, ask for clarification
-        - When recommending products, briefly explain why they might be suitable for the customer
+        - When explaining details, ensure the visitor fully understands the information provided
         
-        When you need more information from the user to provide an accurate and helpful response, ask concise follow-up questions. 
-        Limit yourself to one question at a time to avoid overwhelming the user.
+        If you need more information from the user to provide an accurate and helpful response, ask a concise follow-up question. Limit yourself to one question at a time to avoid overwhelming the user.
 
         Format your response as follows:
         1. If clarification is needed, ask a follow-up question in <clarification> tags
         2. Provide your answer to the user's query in <answer> tags
-        3. If applicable, include product recommendations in <recommendations> tags
 
         Here is the user's query:
         <user_query>
         ${message}
         </user_query>
         
-        Please respond to the user's query using the guidelines provided above.
+        Please respond to the user's query using the guidelines provided above. Make sure to use the information from the events database and boat schedule 
+        database as needed to provide accurate and helpful information.
         
         Here is the conversation thread:
         ${JSON.stringify(conversationHistory)}
-
-        Refer to this info for context:
-        ${productDatabase}
         
         Lastly, you can crawl other sites if very necessary.
     `
