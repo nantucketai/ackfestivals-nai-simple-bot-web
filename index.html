@@ -481,58 +481,172 @@ v=1727209700
 v=1730225112
 `
 
-const storeInformation = `
-Nantucket Looms
-Location:
-51 Main Street
-Nantucket, MA 02554
-Contact Information:
-  • Phone: 508-228-1908
-  • Email: info@nantucketlooms.com
-  • Website: www.nantucketlooms.com
-Store Hours:
-  • Monday to Saturday: 10:00 AM – 5:00 PM
-  • Sunday: 10:00 AM – 4:00 PM
-Description:
-Established in 1968, Nantucket Looms is a renowned weaving studio and retail shop that embodies the artistry of Nantucket. They offer a curated selection of furnishings, apparel, and home accessories, complemented by handwoven textiles produced in their second-floor weaving studio. The store showcases works from over 80 artisans, including painters, potters, basket weavers, jewelry makers, and wood carvers, celebrating Nantucket’s rich history and island traditions.
-Nantucket Looms Interiors:
-For interior design services, Nantucket Looms Interiors provides comprehensive solutions tailored to various styles, from historic to contemporary coastal homes. Their full-service interior design team assists clients through every step of the design process, from initial scheming to installation. They work closely with architects and builders to ensure complete satisfaction with each project.
-Nantucket Looms Interiors Contact Information:
-  • Email: interiors@nantucketlooms.com
-  • Website: www.nantucketloomsinteriors.com
-For custom handwoven products, you can reach out to their weaving department at weaving@nantucketlooms.com.
-Please note that store hours may vary during holidays or special events. It’s advisable to contact the store directly or visit their website for the most up-to-date information.
+const eventsDatabase = `
+The 50th Annual Nantucket Christmas Stroll is scheduled for December 6–8, 2024. Here’s a concise guide to the key events:
+
+Friday, December 6:
+  • Tree Lighting Ceremony: At 4:00 PM, over 150 Christmas trees lining downtown streets will be illuminated, accompanied by community caroling led by The Accidentals and Naturals.
+  • St. Paul’s Church Christmas Concert: From 7:00 PM to 9:00 PM, enjoy holiday classics and favorite carols at St. Paul’s Church. Dessert and bubbly will be served in the Sanctuary. Tickets are $25, available at the door.
+  • Dreamland Stroll Party Featuring The Hess Twins: From 7:00 PM to 10:00 PM, join the fourth annual Dreamland Stroll Party with DJ duo The Hess Twins, dancing, a photo booth, cash bar, and light bites. Dress in your finest Stroll attire.
+
+Saturday, December 7:
+  • Christmas Stroll Marketplace: From 10:00 AM to 3:00 PM at the NIR/Stop & Shop Lot (9 Salem Street), explore a European-style market featuring crafts, food, and beverages from local artisans and businesses.
+  • Main Street Stage Entertainment: Between 10:00 AM and 5:00 PM, enjoy performances by Theatre Workshop of Nantucket, The Boys and Girls Club, The Accidentals & Naturals Nantucket High School Choir, and Victorian Carolers.
+  • Santa’s Arrival: At noon, Santa arrives via a Coast Guard vessel and parades up Main Street to the Pacific National Bank, escorted by the Town Crier.
+  • Talking Tree: From 1:30 PM to 2:30 PM, children can interact with the Magical Talking Tree.
+  • Ugly Sweater Contest: At 2:30 PM on Main Street, participate in the contest judged by Santa. Sign up between 10:30 AM and 2:30 PM at the Chamber’s merchandise table at the marketplace.
+  • Community Caroling: From 4:30 PM to 5:00 PM, join Victorian Carolers for a sing-along on the steps of Pacific National Bank on Main Street.
+  • Nantucket Historical Association’s Festival of Trees: Starting December 6 and continuing through the month, the Whaling Museum transforms into a winter wonderland with over 50 uniquely decorated trees designed by local businesses, artists, and organizations. Open from 10:00 AM to 4:00 PM.
+  • Nantucket Lighthouse School’s Yuletide Fair: From 10:00 AM to 2:00 PM at the White Elephant Ballroom (19 North Water Street), the fair features handcrafted holiday items, heirloom-quality gifts, a bake shop, and craft activities for children.
+  • St. Paul’s Church Christmas Market: From 9:30 AM to 3:00 PM, explore gifts, Christmas decorations, baked goods, fresh greens, and wreaths. A sit-down lunch is served from 11:30 AM to 2:00 PM.
+  • Deck the Wharf Bash at Straight Wharf Fish: From 7:00 PM to 10:00 PM, join the Maria Mitchell Association for an evening with champagne, caviar, burgers, stargazing, caroling, and special guests.
+  • Holiday Classics Featuring Amanda Mena: At 6:00 PM in The Dreamland’s Main Theater, enjoy a 90-minute concert of holiday standards performed by Amanda Mena and her Berklee band. Cash bar receptions before and after the performance.
+
+Sunday, December 8:
+  • Jolly Jam: Skate with Santa: From 3:00 PM to 6:00 PM at Nantucket Ice Community Rink, enjoy live music, kids’ activities, food trucks, cookies, and hot cocoa while skating with Santa.
+  • Sunday Brunch at The Nantucket Hotel: After the Stroll festivities, enjoy a delightful Sunday brunch at The Nantucket Hotel.
+
+Throughout the weekend:
+  Downtown Nantucket will feature Victorian carolers, craft shows, and beautifully decorated Christmas trees, creating a festive atmosphere for all. Many local businesses will offer special sales, holiday-themed events, and extended hours.
+
+For the most current information and additional events, please refer to the Nantucket Island Chamber of Commerce’s official website.
 `;
-const shippingAndReturnsDatabase = `
-Ground Shipping:
-Most purchases are shipped to arrive within 5 to 7 business days of receipt of the order. As closely as possible, the rates that we charge for shipping and handling fees at checkout are an accurate reflection of the rates that we incur from our shipping partners to safely package and deliver your order, and ensure that it meets the highest expectations.
-Sorry, but we do not ship to P.O. or APO Boxes at this time.
-All orders from our inventory are shipped via UPS Ground. Furniture, lamps & area rugs will be drop-shipped by our partners.
-Free shipping on orders over $250. Excludes furniture, rugs and oversized items such as baskets and large artwork. Continental USA only.
 
-Expedited Shipping:
-All orders placed before 12pm Monday-Friday will be shipped out same day. Orders placed after 12pm Monday-Friday will be shipped out the morning of the next business day. Orders placed on Saturday, Sunday or holidays will be shipped the next business day.
-Please note that Nantucket Looms is not responsible for delay in deliveries due to weather and will not refund the cost of expedited shipping in those cases.
+const boatScheduleDatabase = `
+Cape Air Announces Added Holiday Service Between New York and Nantucket, MA
 
-On-Island Delivery:
-Available for addresses on Nantucket only. Same-day delivery if order is placed before 12:00pm Monday-Friday. Orders placed after 12pm will be delivered the next business day. All orders delivered by 5:00pm.
-Orders placed Saturday, Sunday or holidays will be delivered the next business day. If you are not yet on island but will be soon, please email us at info@nantucketlooms.com after placing your order to schedule a delivery date & time.
-Complimentary for all on-hand items. Excludes furniture and area rugs.
+October 1, 2024 – In anticipation of the ever-popular Nantucket Stroll, Cape Air is pleased to announce increased flight capacity on its routes between New York and Nantucket, MA. Beginning December 5, 2024, the airline will add flight services between John F. Kennedy Airport (JFK) and Nantucket (ACK) as well as White Plains (HPN) and Nantucket, to accommodate the surge in travelers heading to the island for this favorite holiday event.
 
-In-Store Pickup:
-Please allow 24 hours for your order to be fulfilled. An email will be sent to notify you when your order is ready. If you are not yet on island but will be soon, please email us at info@nantucketlooms.com after placing your order to schedule a pick-up date & time.
-In-store pick up is complimentary for all on-hand items. Furniture, lamps & area rugs are not available for in-store pickup. If you would like it sent to our shop to pick up later, please enter our address at as the Shipping Address at checkout:
-Nantucket Looms
-51 Main Street
-Nantucket, MA 02554
+New Flight Schedule:
 
-Returns & Satisfaction Guarantee:
-At Nantucket Looms, we take pride in the quality of our merchandise. We’re confident that the quality of our merchandise will meet, if not exceed, your expectations.
-If you're not completely satisfied with your purchase, we’ll gladly offer you an exchange or refund of the merchandise price within 30 days of receipt of product. Please note that a return shipping charge of $12.95 will be deducted from your refund unless the item received is incorrect or damaged. In that case, contact returns@nantucketlooms.com prior to sending the item back to expedite your replacement order.
+JFK to Nantucket (ACK):
+  • Thursday, December 5, 2024: Nonstop flights available
+  • Friday, December 6, 2024: Nonstop flights available
+  • Return flights: Sunday, December 8, 2024, and Monday, December 9, 2024
 
-For "final sale" items, returns or exchanges are only accepted for manufacturing defects. Once your returned item is received and inspected, you will be notified of approval and the refund process will begin.
+White Plains (HPN) to Nantucket (ACK):
+  • Thursday, December 5, 2024: Two nonstop flights available
+  • Friday, December 6, 2024: Two nonstop flights available
+  • Return flights: Sunday, December 8, 2024, and Monday, December 9, 2024
 
-For questions or concerns, please contact us at info@nantucketlooms.com or 508-228-1908 (Monday – Friday, 10am – 5pm EST).
+These increased flights provide greater flexibility and convenience for travelers heading to Nantucket to enjoy the holiday festivities. 
+
+“Our commitment to the communities we serve is at the heart of everything we do,” said Linda Markham, CEO and President of Cape Air. “We understand how important it is for families and friends to come together during the holidays and celebrate the traditions that are meaningful to them. We are proud to play a role in making these moments possible. Nantucket’s holiday events are a true delight, and we’re excited to offer our passengers more options to experience the island’s festive charm.”
+
+Passengers can book their reservations now on capeair.com or by calling 1-800-CAPEAIR. We look forward to welcoming you aboard and helping you enjoy a memorable holiday season on Nantucket!
+`;
+
+const expandedFlightScheduleDatabase = `
+CHRISTMAS STROLL Fast Ferry Schedules
+
+Nantucket to Hyannis:
+HIGH-SPEED FERRY – Friday, Dec. 6:
+  • 7:40 a.m. - 8:40 a.m. (Hy-Line)
+  • 9:00 a.m. - 10:00 a.m. (Hy-Line)
+  • 9:30 a.m. - 10:30 a.m. (Steamship)
+  • 10:30 a.m. - 11:30 a.m. (Hy-Line)
+  • 11:50 a.m. - 12:50 p.m. (Hy-Line)
+  • 12:30 p.m. - 1:30 p.m. (Steamship)
+  • 2:45 p.m. - 3:45 p.m. (Hy-Line)
+  • 3:30 p.m. - 4:30 p.m. (Steamship)
+  • 4:35 p.m. - 5:35 p.m. (Hy-Line)
+  • 5:35 p.m. - 6:35 p.m. (Hy-Line)
+  • 6:15 p.m. - 7:15 p.m. (Steamship)
+  • 7:25 p.m. - 8:25 p.m. (Hy-Line)
+  • 8:20 p.m. - 9:20 p.m. (Hy-Line)
+  • 10:10 p.m. - 11:10 p.m. (Hy-Line)
+
+Hyannis to Nantucket – Friday, Dec. 6:
+  • 6:10 a.m. - 7:10 a.m. (Hy-Line)
+  • 7:35 a.m. - 8:35 a.m. (Hy-Line)
+  • 8:15 a.m. - 9:15 a.m. (Steamship)
+  • 9:05 a.m. - 10:05 a.m. (Hy-Line)
+  • 10:25 a.m. - 11:25 a.m. (Hy-Line)
+  • 11:00 a.m. - 12:00 p.m. (Steamship)
+  • 11:55 a.m. - 12:55 p.m. (Hy-Line)
+  • 1:15 p.m. - 2:15 p.m. (Hy-Line)
+  • 2:00 p.m. - 3:00 p.m. (Steamship)
+  • 3:05 p.m. - 4:05 p.m. (Hy-Line)
+  • 4:10 p.m. - 5:10 p.m. (Hy-Line)
+  • 5:00 p.m. - 6:00 p.m. (Steamship)
+  • 6:00 p.m. - 7:00 p.m. (Hy-Line)
+  • 7:00 p.m. - 8:00 p.m. (Hy-Line)
+  • 8:50 p.m. - 9:50 p.m. (Hy-Line)
+
+Hy-Line Cruises – Saturday, Dec. 7:
+Hyannis to Nantucket:
+  • 6:10 a.m. - 7:10 a.m.
+  • 8:00 a.m. - 9:00 a.m.
+  • 9:05 a.m. - 10:05 a.m.
+  • 10:45 a.m. - 11:45 a.m.
+  • 11:55 a.m. - 12:55 p.m.
+  • 3:05 p.m. - 4:05 p.m.
+
+Nantucket to Hyannis:
+  • 7:40 a.m. - 8:40 a.m.
+  • 9:25 a.m. - 10:25 a.m.
+  • 10:30 a.m. - 11:30 a.m.
+  • 1:20 p.m. - 2:20 p.m.
+  • 4:35 p.m. - 5:35 p.m.
+  • 7:25 p.m. - 8:25 p.m.
+
+Hy-Line Cruises – Sunday, Dec. 8:
+Hyannis to Nantucket:
+  • 6:10 a.m. - 7:10 a.m.
+  • 7:35 a.m. - 8:35 a.m.
+  • 9:05 a.m. - 10:05 a.m.
+  • 11:55 a.m. - 12:55 p.m.
+  • 3:05 p.m. - 4:05 p.m.
+
+Nantucket to Hyannis:
+  • 7:40 a.m. - 8:40 a.m.
+  • 10:30 a.m. - 11:30 a.m.
+  • 2:45 p.m. - 3:45 p.m.
+  • 5:35 p.m. - 6:35 p.m.
+  • 8:20 p.m. - 9:20 p.m.
+
+Steamship Authority – Saturday & Sunday (Dec. 7–8):
+Nantucket to Hyannis:
+  • 9:30 a.m. - 10:30 a.m.
+  • 12:30 p.m. - 1:30 p.m.
+  • 3:30 p.m. - 4:30 p.m.
+  • 6:15 p.m. - 7:15 p.m.
+
+Hyannis to Nantucket:
+  • 8:15 a.m. - 9:15 a.m.
+  • 11:00 a.m. - 12:00 p.m.
+  • 2:00 p.m. - 3:00 p.m.
+  • 5:00 p.m. - 6:00 p.m.
+
+Traditional Ferry – Friday, Saturday, & Sunday:
+Nantucket to Hyannis:
+  • 6:30 a.m. - 8:45 a.m.
+  • 12:00 p.m. - 2:15 p.m.
+  • 5:30 p.m. - 7:45 p.m.
+
+Hyannis to Nantucket:
+  • 9:15 a.m. - 11:30 a.m.
+  • 2:45 p.m. - 5:00 p.m.
+  • 8:00 p.m. - 10:15 p.m.
+
+Ferry Rates:
+Hy-Line Cruises (High-Speed Ferry):
+  • Adult: $89 round-trip, $48 one-way
+  • Child (5–12): $54 round-trip, $31 one-way
+  • Child (under 5): Free
+  • Bicycle: $14 round-trip, $7 one-way
+
+Steamship Authority (High-Speed Ferry):
+  • Adult: $81 round-trip, $42.50 one-way
+  • Child (5–12): $41.75 round-trip, $21 one-way
+  • Child (under 5): Free
+  • Bicycle: $14 round-trip, $7 one-way
+
+Steamship Authority (Traditional Ferry):
+  • Adult: $41 round-trip, $20.50 one-way
+  • Child (5–12): $21 round-trip, $10.50 one-way
+  • Child (under 5): Free
+  • Autos: $360–$400 round-trip depending on size
 `;
             // Add user message to conversation history
             conversationHistory.push({ role: 'user', content: message });
@@ -551,65 +665,54 @@ For questions or concerns, please contact us at info@nantucketlooms.com or 508-2
                     // If the question below is not about American Seasons, dont answer.
                     body: JSON.stringify({
                         message:`
-        You are a customer service chatbot for Nantucket Looms, a home decor eCommerce site. 
-        Your primary function is to assist customers by providing information, answering questions, 
-        shipping and return policy information, and making recommendations. You have access to the following databases:
+        You are an AI tourism helper focused on the 50th Nantucket Christmas Stroll. Your primary function is to assist visitors by providing
+ information about the weekend's events and travel information from the boat schedule and the expanded flight schedule. You have access to three databases:
         
-        <product_database>
-        ${productDatabase}
-        </product_database>
+        <events_database>
+        ${eventsDatabase}
+        </events_database>
 
-        <store_information>
-        ${storeInformation}
-        </store_information>
 
-        <shipping_and_returns_database>
-        ${shippingAndReturnsDatabase}
-        </shipping_and_returns_database>
+        <boat_schedule_database>
+        ${boatScheduleDatabase}
+        </boat_schedule_database>
+
+
+        <expanded_flight_schedule_database>
+        ${expandedFlightScheduleDatabase}
+        </expanded_flight_schedule_database>
         
-        Use these databases to retrieve relevant information when responding to customer queries. 
+        Use these databases to retrieve relevant information when responding to visitor  queries. 
         Your responses should be concise, friendly, and focused on the most relevant data.
 
         Main functions:
-        1. Answer general questions about products (e.g., types of products available, materials used, etc.)
-        2. Provide specific product information (e.g., price, dimensions, colors, etc.)
-        3. Make product recommendations based on customer preferences
-        4. Suggest related products
-        5. Answer general questions about the store (e.g., store locations, hours of operation, history, etc.)
-        6. Provide specific information about store policies (e.g., return policy, shipping options, etc.)
-        7. Assist with inquiries about services offered by the store
-        8. Guide customers on how to navigate the website or place orders
-        9. Answer general questions about shipping options (e.g., shipping times, costs, international shipping, etc.)
-        10. Provide specific information about return policies (e.g., return periods, refund processes, etc.)
-        11. Clarify any customer concerns regarding shipping and return
-        12. Provide instructions on how to initiate returns or track shipments
+        1. Provide detailed information about the events during the 50th Nantucket Christmas Stroll (e.g., event times, locations, descriptions, etc.)
+        2. Offer travel information from the boat schedule (e.g., departure and arrival times, ticket prices, booking procedures, etc.)
+        3. Answer general questions about the Nantucket Christmas Stroll and the island
+        4. Clarify any visitor concerns regarding events or travel arrangements
         
-        Guidelines for answering queries:
+        When answering queries, follow these guidelines:
         - Always prioritize accuracy and relevance in your responses
         - Keep answers concise and to the point
         - If a query is ambiguous or lacks sufficient information, ask for clarification
-        - When recommending products, briefly explain why they might be suitable for the customer
+        - When explaining details, ensure the visitor fully understands the information provided
         
-        When you need more information from the user to provide an accurate and helpful response, ask concise follow-up questions. 
-        Limit yourself to one question at a time to avoid overwhelming the user.
+        If you need more information from the user to provide an accurate and helpful response, ask a concise follow-up question. Limit yourself to one question at a time to avoid overwhelming the user.
 
         Format your response as follows:
         1. If clarification is needed, ask a follow-up question in <clarification> tags
         2. Provide your answer to the user's query in <answer> tags
-        3. If applicable, include product recommendations in <recommendations> tags
 
         Here is the user's query:
         <user_query>
         ${message}
         </user_query>
         
-        Please respond to the user's query using the guidelines provided above.
+        Please respond to the user's query using the guidelines provided above. Make sure to use the information from the events database and boat schedule 
+        database as needed to provide accurate and helpful information.
         
         Here is the conversation thread:
         ${JSON.stringify(conversationHistory)}
-
-        Refer to this info for context:
-        ${productDatabase}
         
         Lastly, you can crawl other sites if very necessary.
     `
